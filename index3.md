@@ -12,4 +12,8 @@ Comunicacion Visual
 
 ## Clase 3
 
-## Clase 3
+<script>
+// comment
+</script>
+
+## Clase 4
