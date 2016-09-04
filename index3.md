@@ -11,3 +11,5 @@ Comunicacion Visual
 ## Clase 2
 
 ## Clase 3
+
+## Clase 3
