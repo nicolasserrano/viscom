@@ -14,6 +14,7 @@ Comunicacion Visual
 
 <script>
 // comment
+document.write("Videos:");
 </script>
 
 ## Clase 4
