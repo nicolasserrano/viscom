@@ -7,5 +7,6 @@ title: Viscom
 Comunicacion Visual
 
 ## Clase 1
+Videos
 
 ## Clase 2
