@@ -12,9 +12,10 @@ Comunicacion Visual
 
 ## Clase 3
 
-<script>
+<script src="code.js">
 // comment
-document.write("Videos:");
 </script>
 
 ## Clase 4
+
+## Clase 5
