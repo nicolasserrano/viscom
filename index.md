@@ -10,6 +10,7 @@ Congreso Univ 2017: <a href="http://www.univcongress.info/tema-2017-un-mundo-en-
 # Clase 1
 [FCom: pasión por comunicar](https://www.youtube.com/watch?v=UQ_s4YlVE20)
 <hr>
-<scritp>
+<script>
 document.write("Comunicación Visual");
-</scritp>
+</script>
+
