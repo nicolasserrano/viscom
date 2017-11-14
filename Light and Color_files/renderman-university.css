@@ -1,0 +1,279 @@
+.coursewareBackground {
+	background: #efefef;
+	float: left;
+	margin: 0 25px 25px;
+	padding: 30px 50px;
+	width: 796px;
+	color: #333;
+	font-size: 13px!important;
+}
+.coursewareBackground hr {
+	display:none;
+}
+.coursewareBackground img {
+	margin-bottom:20px;
+	max-width: 776px;
+}
+.coursewareBackground strong, .coursewareBackground p, .coursewareBackground h1, .coursewareBackground h2, .coursewareBackground h3, .coursewareBackground h4, .coursewareBackground h5, .coursewareBackground h6, .coursewareBackground li, .coursewareBackground li a {
+	color:#333;
+}
+.coursewareBackground a {
+	color:#000;
+	text-decoration:underline;
+}
+.coursewareBackground pre, .coursewareBackground code {
+	background:#ddd;
+	font-weight:bold;
+/*	white-space: pre-line;*/
+}
+.entranceListWiki ul {
+	margin:0;
+	padding:0;
+}
+.entranceListWiki ul li {
+	margin-bottom:0!important;
+	margin-top:0!important;
+	background:none;
+}
+.entranceListWiki ul li a {
+	text-decoration:none;
+}
+.entranceListWiki ul li a {
+	background: #eee;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+	background: -moz-linear-gradient(bottom, #eee, #fff);
+	width:100%;
+	float:left;
+	margin-left:-10px;
+	padding:7px 0px 10px 10px
+}
+.entranceListWiki ul li a:hover {
+	background:#ddd;
+	color:#111!important;
+}
+.entranceListWiki ul li a:active {
+	background:#ccc;
+	color:#000
+}
+ .entranceListWiki ul li:nth-child(even) {
+float:right;
+ width:45%;
+}
+.entranceListWiki ul li:nth-child(odd) {
+float:left;
+ width:45%;
+}
+.entranceListWiki ul li h3 {
+	margin:0;
+	padding:0;
+	font-size:18px!important;
+}
+.internalWiki ul {
+	margin:0;
+	padding:0;
+}
+.internalWiki ul li {
+	margin-bottom:0!important;
+	margin-top:0!important;
+	background:none;
+}
+.internalWiki ul li a {
+	text-decoration:none;
+}
+.internalWiki ul li a {
+	background: #eee;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+	background: -moz-linear-gradient(bottom, #eee, #fff);
+	width:100%;
+	float:left;
+	margin-left:-10px;
+	padding:7px 0px 10px 10px
+}
+.internalWiki ul li a:hover {
+	background:#ddd;
+	color:#111!important;
+}
+.internalWiki ul li a:active {
+	background:#ccc;
+	color:#000
+}
+.internalWiki ul li {
+	float: left;
+	margin-right: 25px!important;
+	width: 45%;
+}
+.internalWiki ul li h3 {
+	margin:0;
+	padding:0;
+	font-size:18px!important;
+}
+.coursewareBackground h1, .coursewareBackground h2, .coursewareBackground h3, .coursewareBackground h1 a, .coursewareBackground h2 a, .coursewareBackground h3 a {
+	padding-bottom:10px;
+	margin-bottom:10px!important;
+	clear: left;
+	border-bottom:1px solid #ccc;
+	text-decoration:none;
+}
+.imageLeft {
+	float:left;
+	padding:0 10px 10px 0;
+	margin:0 10px 10px 0;
+}
+.coursewareBreadcrumbs {
+	font-size:14px;
+	color:#ccc;
+	float:left;
+}
+.coursewareBreadcrumbs a {
+	color:#aaa!important;
+	font-size: 14px;
+	font-style: italic;
+	padding-right:5px;
+	border-right:1px solid #666;
+}
+.coursewareBreadcrumbs a:hover {
+	color:#fff!important;
+}
+.coursewareBreadcrumbs a:last-child {
+	color:#ccc;
+	border-right:none;
+}
+.coursewareKeywords {
+	font-size:14px;
+	color:#ccc;
+	float:left;
+	margin:5px 0 15px 0;
+}
+.coursewareKeywords span {
+	color:#aaa;
+	font-size: 14px;
+	font-style: italic;
+}
+#quaternaryNav {
+	padding: 0!important;
+	float: left;
+	margin: 0 0 0 15px!important;
+}
+#quaternaryNav li a {
+	font-size: 16px;
+	background:none;
+	float: left;
+	margin-bottom: 10px;
+	text-decoration: none;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0 5px 0;
+	width: 95%;
+	color:#555;
+	font-weight:bold;
+}
+#quaternaryNav li a:hover {
+	color:#111;
+}
+#quaternaryNav li ul li a {
+	border: none!important;
+	font-size:14px!important;
+	color:#666!important;
+	margin-left:5px!important;
+	padding:5px 0;
+}
+/*#quaternaryNav li ul li a:hover {
+color:#555
+}
+
+#quaternaryNav li ul li a:visited {
+color:#555;
+}
+*/
+#quaternaryNav li ul {
+	margin-left: 0px;
+	float: left;
+	margin-top: 0px;
+	display: none;
+	padding: 0;
+	clear: left;
+	width: 100%;
+}
+#quaternaryNav li {
+	float: left;
+	width: 390px;
+	margin: 0 0 25px;
+	background: none;
+	display: block;
+}
+#quaternaryNav ul li {
+	margin: 10px 0 0 0!important;
+	width: 100%;
+	border: none;/*float: none;*/
+	display: block;
+	float:left;
+}
+#quaternaryNav ul li:nth-of-type(odd) {
+ width:95%!important;
+ background:#dedede!important;
+ display: block;
+ float:left;
+}
+#quaternaryNav li ul li {
+	width: 300px;
+	display: block;
+	float:left;
+	margin: 0!important;
+	padding: 0!important;
+}
+#quaternaryNav li ul li a {
+	width: 100%;
+	font-weight:normal!important;
+	display: block;
+	float:left;
+}
+#quaternaryNav li ul li a:hover {
+	color:#222!important;
+}
+#mainContentContainer p {
+	font-family:Arial, Helvetica, sans-serif!important;
+	color:#333!important;
+}
+#mainContentContainer .entranceList p {
+	color: #aaa!important;
+}
+#mainContentContainer .entranceList h3 {
+	color: #FFCC03;
+}
+#mainContentContainer a:hover {
+	color: #FFCC03;
+}
+h1.articleContentTitle {
+	width:620px!important;
+}
+#mainContentContainer ul li {
+	color:#333;
+	font-weight:normal;
+}
+#mainContentContainer ol li {
+	color: #333!important;
+	font-weight: normal;
+	font-family: arial, sans-serif;
+	font-size: 13px!important;
+}
+.customSearchPosition .siteSearch {
+	margin: 20px 47px 20px 0px!important;
+}
+ol img {
+	margin-left:-28px;
+}
+.footerColor {
+display: none;
+}
+/*-------------------------
+powered by -
+   ___            __     
+ /'___`\        /'__`\   
+/\_\ /\ \      /\ \/\ \  
+\/_/// /__     \ \ \ \ \ 
+   // /_\ \ __  \ \ \_\ \
+  /\______//\_\  \ \____/
+  \/_____/ \/_/   \/___/ 
+                         
+----------------------------------*/

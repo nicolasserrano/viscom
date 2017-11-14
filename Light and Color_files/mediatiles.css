@@ -1,0 +1,16 @@
+/*2.0 Creator MediaTiles CSS*/
+div.tenPixMargin {
+	margin: 10px;
+}
+div.twentyPixPadding {
+	padding: 20px;
+}
+div.floatLeft {
+	float: left;
+}
+div.floatRight {
+	float: right;
+}
+div.greenBorder {
+	border: 5px solid green;
+}

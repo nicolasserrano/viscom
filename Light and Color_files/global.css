@@ -1,0 +1,24 @@
+#idletimeout {
+	-moz-border-radius: 0 0 5px 5px;
+-webkit-border-radius:  0 0 5px 5px;
+background: #eee; /* for non-css3 browsers */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A5F7C', endColorstr='#1B2C3E'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#4A5F7C), to(#1B2C3E)); /* for webkit browsers */
+background: -moz-linear-gradient(bottom,  #1B2C3E,  #4A5F7C); /* for firefox 3.6+ */
+border-bottom:1px solid #0C1C2F;
+color:#8EAFCF;
+margin:0px 0px 0px 0px;
+padding:40px 0px 0px 0px;
+padding:15px;
+text-shadow:0 -1px 0 #000000;
+z-index:1000000;
+display:none;
+position:relative; top:0px; left:0; right:0;
+}
+	
+#idletimeout a { color:#fff; font-weight:bold }
+#idletimeout span { font-weight:bold }
+
+.twitterLoginButton:hover {
+	cursor: pointer;
+}

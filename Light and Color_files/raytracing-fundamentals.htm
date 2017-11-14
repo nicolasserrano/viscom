@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://renderman.pixar.com/view/raytracing-fundamentals -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" xmlns:og="http://opengraphprotocol.org/schema/" class="js wf-futurapt-n4-active wf-newsgothicstd-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   	    <meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="introduction, raytracing, ver4">
+		<meta property="og:title" content="Raytracing Fundamentals">
+		<meta property="og:url" content="http://rendermansite.pixar.com/view/raytracing-fundamentals">
+		<meta property="og:image" content="http://rendermansite.pixar.com/ogimages/noogimage.jpg">
+		<meta property="og:description" content="">
+		<meta property="og:type" content="">
+		<meta property="og:site_name" content="Renderman University">
+		<meta property="fb:app_id" content="134425536580464">
+		
+		<script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>Raytracing Fundamentals</title>
+
+					
+			<script src="modernizer.custom.min.js" type="text/javascript"></script>
+			<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+			<script src="jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+			<script src="jquery.validate.js" type="text/javascript"></script>
+			<script src="jquery.hoverintent.js" type="text/javascript"></script>
+			<link href="jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css">
+			
+			<script src="twopointo_ajax.js" type="text/javascript"></script>
+			<script src="ca.twopointo.creator.js" type="text/javascript"></script>
+			
+			<link href="global.css" rel="stylesheet" type="text/css">
+			<link href="http://rendermansite.pixar.com/ca_twopointo_cms_flavor_pixar/images/favicon.ico" rel="shortcut icon">
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://rendermansite.pixar.com/ca_twopointo_cms/images/launch/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://rendermansite.pixar.com/ca_twopointo_cms/images/launch/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://rendermansite.pixar.com/ca_twopointo_cms/images/launch/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://rendermansite.pixar.com/ca_twopointo_cms/images/launch/apple-touch-icon-precomposed.png">	
+                    
+							<!--[if IE]> <link href="http://rendermansite.pixar.com/ca_twopointo_cms/styles/ie.css" rel="stylesheet" type="text/css" media="Screen"/> <![endif]-->
+						
+
+							<link href="mediatiles.css" rel="stylesheet" type="text/css" media="Screen">
+						
+							<link href="default.css" rel="stylesheet" type="text/css" media="Screen">
+						
+							<link href="flavor.css" rel="stylesheet" type="text/css">
+			
+			<link href="renderman-university.css" rel="stylesheet" type="text/css">
+
+			
+				
+		<script type="text/javascript">
+			var CURRENTNODE_ROOT_KEY = 'raytracing-fundamentals' ;
+			var FLAVOR_KEY = 'pixar' ;
+			var REST_CACHE = new RestCache();
+			var CDN_URL = '';
+			var SCRIPT_CDN_URL = 'http://rendermansite.pixar.com';
+			var REST_DATA_ARRAY = new Array();
+			var VIEW_PATH = '/view/';
+			var RANDOM_NUMBER = new Date().getTime();
+		</script>
+		
+		
+		<script>
+			var localeSettings = {
+"VIDEO_NETWORK":"Video Network ",
+"VIDEOS":"Videos ",
+"VIDEO":"Video",
+"VIEWS":"Views",
+"NOW_PLAYING":"Now Playing",
+"SAVE_TO_FAVORITES":"Save to Favorites",
+"COMMENT":"Comment",
+"WRITE_COMMENT":"Write Comment",
+"COMMENTS":"Comments",
+"ALL_RESULTS":"All Results",
+"RECOMMEND":"Recommend",
+"PLAYLISTS":"Playlists",
+"RECENT_ENTRIES":"Recent Entries",
+"PLAYLIST":"Playlist",
+"FEATURED":"Featured",
+"ARCHIVES":"Archives",
+"LEAVE_A_COMMENT":"Leave A Comment",
+"SIGN_IN_WITH_A_SINGLE_CLICK":"Sign in with a Single Click",
+"ALL_CHANNELS":"All Channels",
+"CHANNELS":"Channels",
+"FEATURED_ARTWORK":"Featured Artwork",
+"GALLERY_ARCHIVES":"Gallery Archives",
+"GALLERY_ENTRIES":"Gallery Entries",
+"CHECK_LOCAL_LISTINGS":"Check Local Listings",
+"CHANNEL":"Channel",
+"LEARN_MORE":"Learn More",
+"LATEST_LINKS":"Latest Links",
+"VIEW_ALL_RECIPES":"View All Recipes",
+"SEARCH":"Search",
+"FEATURING":"Featuring",
+"DISPLAY_MORE":"Display More",
+"VIEW_ALL_SHOWS":"View All Shows",
+"VIEW_ALL_CATEGORIES":"View All Categories",
+"VIEW_SHOW":"View Show",
+"ALL_VIDEOS_FOR":"All Videos for",
+"LOADING_VIDEO_COMMENTS":"Loading Video Comments",
+"VIEW_FULL_SHOW":"View Full Show",
+"ASSOCIATED_LINKS":"Associated Links",
+"SHOW_SEGMENTS":"Show Segments",
+"MY_CHANNEL":"My Channel",
+"MY_PROFILE":"My Profile",
+"START_YOUR_OWN_CHANNEL":"Start Your Own Channel & Share Your Story. ",
+"ITS_EASY":"It's Easy!",
+"CREATE_YOUR_OWN_SHOWS":"Create Your Own Shows.",
+"SHARE_WITH_FRIENDS_AND_THE_COMMUNITY":"Share with Friends & the Community",
+"USE_WEBCAM_TO_CREATE_VIDEO_RESPONSES":"Use WebCam to Create Video Responses",
+"START_SHARING_NOW":"Start Sharing Now",
+"LOGIN_WITH":"Login with",
+"SHARE_YOUR_STORY":"Share Your Story",
+"SIGN_UP":"Sign Up",
+"MY_LOGIN":"My Login",
+"FEATURED_RECIPES":"Featured Recipes",
+"SEE_OTHER_BRAND_CHANNELS_ON_THE":"See Other Brand Channels on the",
+"MORE_PLAYLISTS":"More Playlists",
+"MORE_VIDEOS":"+ More Videos",
+"MORE":"+ More",
+"MORE_RECIPES":"+ More Recipes",
+"VIEW_EXTENDED_SCHEDULE":"View Extended Schedule",
+"RECENT_ACTIVITY":"Recent Activity",
+"WHATS_NEW":"What's New",
+"CURRENT_PLAYLISTS":"Current Playlists",
+"CURRENT_VIDEOS":"Current Videos",
+"LIKES":"Likes",
+"EXTRAS":"Extras",
+"FAVORITES":"Favorites",
+"MY_FAVORITES_ARE_EMPTY":"My Favorites are Empty",
+"GET_STARTED":"Get Started",
+"TO_FAVORITE_OR_RESPOND_AND_PUBLISH_YOUR_SHOWS_ON_YOUR_OWN_CHANNEL":"To favorite or respond",
+"LOGIN":"Login / Sign Up",
+"TO_CONNECT":"To connect with the ",
+"Q_DONT_HAVE_FACEBOOK":"Don't have Facebook? ",
+"Q_DONT_HAVE_FACEBOOK_OR_TWITTER":"Don't have Facebook or Twitter? ",
+"REGISTER_NOW":"Register Now",
+"Q_HAVE_A_STANDARD_ACCOUNT":"Have a standard account?",
+"LOGIN_BELOW":"Login Below",
+"USE_THE_STANDARD_LOGIN":"Use the standard login",
+"CURRENT_CITY":"Current City",
+"CREATED":"Created",
+"JOINED":"Joined",
+"EDIT_PROFILE":"Edit Profile",
+"UPLOAD_IMAGE":"Upload Image",
+"SETTINGS":"Settings",
+"DASHBOARD":"Dashboard",
+"RESET_PASSWORD":"Reset Password",
+"DELETE_PROFILE":"Delete Profile",
+"LOG_OUT":"Log Out",
+"GENERAL_SETTINGS":"General Settings",
+"ACCOUNT_INFORMATION":"Account Information",
+"NICKNAME":"Nickname",
+"CHECK_HERE_TO_RECEIVE_UPDATES":"Check Here to Receive Updates",
+"BASIC_INFORMATION":"Basic Information",
+"ABOUT_ME":"About Me",
+"ACTIVITIES":"Activities",
+"RELATIONSHIP":"Relationship",
+"BIRTHDAY":"Birthday",
+"GENDER":"Gender",
+"FAVORITE_BOOK":"Favorite Book",
+"FAVORITE_MUSIC":"Favorite Music",
+"FAVORITE_QUOTES":"Favorite Quotes",
+"FAVORITE_TV_SHOWS":"Favorite TV Shows",
+"CONTACT_INFORMATION":"Contact Information",
+"ADDRESS":"Address",
+"CITY":"City",
+"STATE":"State/Prov",
+"POSTAL_CODE":"ZIP",
+"COUNTRY":"Country",
+"PERSONAL_INFORMATION":"Personal Information",
+"POLITICAL_VIEWS":"Political Views",
+"RELIGION":"Religion",
+"SECONDARY_SCHOOL":"High School",
+"POST_SECONDARY_SCHOOL":"College",
+"GRAD_SCHOOL":"Grad School",
+"USE_FACEBOOK_PICTURE":"Use (Facebook) Picture",
+"NAME_YOUR_SHOW":"Name Your Show",
+"ENTER_YOUR_SHOW_TITLE":"Enter Your show Title",
+"PRODUCE_A_SHOW":"Produce A Show",
+"PICTURES":"Pictures",
+"LOADING":"Loading",
+"FEATURING":"Featuring",
+"WHATS_NEW_ON_BETTER":"What's New on Better",
+"OUR_FAVORITES":"Our Favorites",
+"YOUR_FAVORITES":"Your Favorites",
+"BLOG":"Blog",
+"SHOW":"Show",
+"FAVORITED":"Favorited",
+"RELATED":"Related",
+"MOST_WATCHED":"Most Watched",
+"VIDEO_COMMENT":"Video Comment",
+"TEST":"Test"
+}
+		</script>
+		
+							
+
+		<link href="renderman-university.css" rel="stylesheet" type="text/css">		<script type="text/javascript" src="jdc7yjh.js"></script>
+<style type="text/css">#mainContentContainer h1,#mainContentContainer h2,#mainContentContainer h3,#mainContentContainer h4,#mainContentContainer h5,#mainFooterContainer h1,#mainFooterContainer h2,#mainFooterContainer h3,#mainFooterContainer h4,#mainFooterContainer h5,#mainSubNavigation,#profilePageCreator #profileInfo h1,#profilePageCreator h1,#profilePageCreator h2,#profilePageCreator h3,#profilePageCreator h4,#profilePageCreator h5,.creatorMainNav li a,.fontFutura,.homeText h4,ol,ul.creatorFooterNav li a{font-family:"futura-pt",sans-serif;}#mainContentContainer p,#mainFooterContainer a,#mainFooterContainer p,.fontNewsGothic,.homeText,.tk-news-gothic-std,h1.articleContentTitle,h1.articleContentTitle a,h1.articleContentTitle span{font-family:"news-gothic-std",sans-serif;}</style><link rel="stylesheet" href="http://use.typekit.com/k/jdc7yjh-d.css?3bb2a6e53c9684ffdc9a9bff135b2a62420d995bda4d3b1c65f09152c81ea290a9522b03a145af7f4c024c105df91e47c554d8494497c9859bbc0e4f91da4bd13aec71c94a2af1bf1c5818d94e2ca71af9cd3d25070993f3fd2b1fb33a3448101fa4f514dde24d65994907ded6b96f202f1dfe96f62788a3b2bdcd17518b981359024a20383f11afecd4bcbe9eeb9203941bceda7b8418103273338d975552e3b938b22cd8f98a079cbb428ee8c58a95335745097a8fc4268ba0fb9972b13300b846ada36d72f8"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<meta name="google-site-verification" content="2ZAq2yjEZGqXq2Vlq7RGva9iPxb17DVyOFNOc0qg14M">
+
+
+ 
+
+	</head>
+
+	<body>
+				
+		
+					<script>
+$(document).ready(function(){	
+	$('#fadePage').fadeIn(1700);
+});
+</script>
+
+<div class="center">
+	<div id="mainContentContainer">
+		<div class="fullWidth headerColor">
+	<div class="center">
+		<a class="logo" href="http://www.pixar.com/" target="_blank"> <img src="logo.png" alt="Pixar Logo"></a>
+		<a class="signupButtonStyle" href="http://rendermansite.pixar.com/register">Sign Up</a>
+		<a class="loginButtonStyle" href="http://rendermansite.pixar.com/login">Login</a>
+		<div id="mainSiteNavigation">
+			<div class="homeRenderManLink">
+        		<a href="http://renderman.pixar.com/view/renderman">RenderMan Logo</a>
+			</div>
+		
+				        		<a class="blueButton floatRight marginR10 marginT5" href="http://renderman.pixar.com/view/purchase">Buy RenderMan</a>
+		
+			
+
+  <ul class="creatorMainNav floatRight" id="menu">
+
+		<li class="" id="navbarId-24752">
+			<a href="http://renderman.pixar.com/view/about-renderman">
+				About RenderMan			</a>
+		</li>
+		<li class="" id="navbarId-23703">
+			<a href="http://renderman.pixar.com/view/renderman-products">
+				Products			</a>
+		</li>
+		<li class="creatorMainNavActive" id="navbarId-24660">
+			<a href="http://renderman.pixar.com/view/resources">
+				Resources			</a>
+		</li>
+		<li class="" id="navbarId-25665">
+			<a href="http://renderman.pixar.com/view/renderman-news">
+				News			</a>
+		</li>
+</ul>
+
+
+		</div>
+	</div>
+</div>
+
+		<div class="clearBoth"></div>
+        	<div id="fadePage" style="">
+			<script>
+$(document).ready(function() {
+$('.coursewareBackground .mediaTile img').each(function() {
+  $.each($('.coursewareBackground .mediaTile img'), function() {
+    var image = $(this);
+
+    if (image.width() < 550) {
+      image.addClass("imageBorder"); 
+    }
+  });
+});
+});
+</script>
+
+<script>
+$(document).ready(function() {
+$("a[href*='specialAssets']").addClass("downloadBg");
+});
+</script>
+
+
+<div id="mainSubNavigation">
+        
+<script>
+$(document).ready(function() {
+				 $("ul#nav li ul:empty").remove();  
+				   });
+</script>
+
+<!--[if IE 7]>
+
+<script type="text/javascript">
+
+$(function() {
+ var zIndexNumber = 500;
+ $('div').each(function() {
+ $(this).css('zIndex', zIndexNumber);
+ zIndexNumber -= 5;
+ });
+});    
+
+</script>
+<![endif]-->
+
+<ul id="nav"><li><a class="active" href="http://renderman.pixar.com/view/renderman-university">RenderMan University</a><ul class="subList"><li><a class="activeSub" href="http://renderman.pixar.com/view/fundamentals">Fundamentals</a></li><li><a class="" href="http://renderman.pixar.com/view/how-to">How To's</a></li><li><a class="" href="http://renderman.pixar.com/view/production-examples">Production Examples</a></li><li><a class="" href="http://renderman.pixar.com/view/library">Library</a></li></ul></li><li><a class="" href="http://renderman.pixar.com/view/downloads">Downloads</a><ul class="subList"><li><a class="" href="http://renderman.pixar.com/view/product-downloads">Product Downloads</a></li><li><a class="" href="http://renderman.pixar.com/view/support-applications">Support Applications</a></li></ul></li><li><a class="" href="http://renderman.pixar.com/view/documentation">Documentation</a><ul class="subList"><li><a class="" href="http://renderman.pixar.com/view/DP24566">RenderMan Pro Server</a></li><li><a class="" href="http://renderman.pixar.com/view/DP24564">RenderMan Studio</a></li><li><a class="" href="http://renderman.pixar.com/view/DP24567">Tractor</a></li><li><a class="" href="http://renderman.pixar.com/view/archives">Archives</a></li></ul></li><li><a class="" href="http://renderman.pixar.com/view/support">Support</a><ul class="subList"><li><a class="" href="http://renderman.pixar.com/view/Forums1">Support Forums</a></li></ul></li></ul>
+
+
+
+<script>
+$(document).ready(function() {
+				   
+				    var timer;
+				    var $trigger = $('ul#nav > li');
+				    var $SubNav = $('ul#nav li ul');
+				    
+                    function endAndStartTimer() {
+                      window.clearTimeout(timer);
+                      //var millisecBeforeRedirect = 10000; 
+                      timer = window.setTimeout(function(){
+                         $SubNav.stop(true, true).slideUp(100, function() {
+                           $trigger.removeClass('hover');
+                           $(this).removeClass('active');
+                         });
+                         
+                         },800); 
+                    };
+                    
+                    
+                    function showMenu () {
+                       $(this).addClass('hover');
+                         $SubNav.removeClass('active');
+                         $(this).find('ul').addClass('active');
+                         $('ul#nav li ul').not('.active').slideUp(0, function() {
+                            $(this).parent('li').removeClass('hover');
+                          });
+                           $(this).find('ul').slideDown(300);
+
+                          clearTimeout(timer);
+                    };
+                    
+                    function hideMenu () {
+                       endAndStartTimer()
+                    };
+                    
+                    $trigger.hoverIntent( showMenu, hideMenu )
+
+
+                    $SubNav.hover(function() {
+                        clearTimeout(timer);  
+                    }, function() {
+                       endAndStartTimer()
+                    });
+});
+
+				   
+</script></div>
+
+<div class="clearBoth"></div>
+
+<h1 class="articleContentTitle">Raytracing Fundamentals</h1>
+<div class="siteSearch">
+<form method="post" action="http://renderman.pixar.com/search/">
+<input type="text" name="frmSearchString">
+<input type="submit" value="Search">
+</form>
+</div>
+
+<div class="clearBoth"></div>
+
+<hr>
+
+<div class="coursewareBreadcrumbs paddingLR25"><span> <a href="http://renderman.pixar.com/view/resources">Resources</a>   <a href="http://renderman.pixar.com/view/renderman-university">RenderMan University</a>   <a href="http://renderman.pixar.com/view/fundamentals">Fundamentals</a>   <a href="http://renderman.pixar.com/view/cg-shading">Shading</a>   </span> </div>
+
+<script>
+$(document).ready(function() {
+$(".coursewareBreadcrumbs span").each(function() {
+   $(this).html($(this).html().replace(/[:]/g,""));
+});
+});
+</script>
+
+
+<div class="clearBoth"></div>
+
+<div class="coursewareKeywords paddingLR25">Tags : <span>introduction, raytracing, ver4</span></div>
+
+<div class="clearBoth"></div>
+
+<div class="coursewareBackground">
+
+
+<p> </p>
+<div><div id="5805_RAW" class="mediaTile "><img src="19959_5805.gif" alt="19959_5805gif" class="imageBorder"></div></div>
+<p> Ray tracing is a rendering technique that fires rays of light from the camera backwards through the viewing plane and into the scene. Once in the scene, the ray tests for intersections against a database of objects.<br>
+  When the ray hits an object, the material properties of that object are evaluated. If the material has specular reflectivity, a continuation ray is traced in the reflection direction to test for reflected objects and return their illuminated color to the first surface. If the reflected ray fails to hit anything the environment or the background color is returned. Each time a ray hits an object it evaluates the local shading model, which usually requires illumination calculations. Often this can be done without ray tracing. However if raytraced shadows are required, a ray is fired in the direction of the light source. This ray tests for object intersections to determine if the surface is in shadow, partially illuminated, or fully illuminated.</p>
+<p> In addition to specular reflections, there are also diffuse reflections. Diffuse reflections are found by sending out a hemisphere of rays above a surface point. Each diffuse ray returns either the color of the surface it hits or the color of the environment. All the rays are averaged to find the diffuse reflection. This hemispherical sampling technique is used to compute occlusion, colorbleeding, and image-based lighting (see <a class="twikiLink" href="http://renderman.pixar.com/view/image-based-lighting">IBL</a> for more information).</p>
+<h3> <a name="What_is_a_Diffuse_Ray"></a> What is a Diffuse Ray?</h3>
+<p> </p>
+<div><div id="5806_RAW" class="mediaTile "><img src="14752_5806.gif" alt="14752_5806gif" class="imageBorder"></div></div>
+<p> Technically, a diffuse ray is a ray that is cast in a hemisphere above a point where the angle of the hemisphere exceeds the angle specified by the RenderMan option <em>specularthreshold</em>. Practically, a diffuse ray is a ray used to sample effects that are view independent such as occlusion, colorbleeding, or image-based lighting. Typically they are spawned in a hemisphere above a shading point, (P), with the result being the average of the diffuse ray results (samples).</p>
+<h3> <a name="What_is_a_Specular_Ray"></a> What is a Specular Ray?</h3>
+<p> </p>
+<div><div id="5807_RAW" class="mediaTile "><img src="17404_5807.gif" alt="17404_5807gif" class="imageBorder"></div></div>
+<p> Specular rays are typically cast for reflections and refractions. Any hemispherical rays that are fired for blurred reflection or refraction are categorized as specular if the cone angle is below the specular threshold option (described above). The limit on the number of rays that can be inter-reflected is set by the <em>maxspeculardepth</em> attribute below.</p>
+<h2> <a name="Ray_Tracing_Options_and_Attribut"></a> Ray Tracing Options and Attributes</h2>
+<p> </p>
+<div><div id="5808_RAW" class="mediaTile "><img src="19559_5808.gif" alt="19559_5808gif" class="imageBorder"></div></div>
+<p> RenderMan has a number of options and attributes that help tune the efficiency of ray tracing. The main attributes and options are described below with an extract from a RIB file that shows how the attribute/option manifests itself in RIB.</p>
+<h3> <a name="Trace_Bias"></a> Trace Bias</h3>
+<p> This value offsets the origin of each ray by the specified amount of bias. The bias helps to overcome numerical precision issues, resulting in false ray-primitive intersections on the surface casting the rays. False intersections often appear as black patches along grid borders, but can be eliminated by increasing the trace bias.</p>
+<div class="fragment">
+  <pre>	Attribute "trace" "float bias" [0.001]</pre>
+</div>
+<h3> <a name="Trace_Depth"></a> Trace Depth</h3>
+<p> This option, set through the Render Settings, puts a maximum limit on ray-traced recursion (reflections of reflection of reflections...).</p>
+<div class="fragment">
+  <pre>	Option "trace" "int maxdepth" [10]</pre>
+</div>
+<h3> <a name="Trace_Displacements"></a> Trace Displacements</h3>
+<p> This attribute controls whether displacements are considered during ray-primitives intersection tests. You can override this attribute on a per-object basis by adding the <em>Trace displacements</em> attribute. <strong>Note</strong> that tracing displacements are considerably slower. See <a class="twikiLink" href="http://renderman.pixar.com/view/displacement-2">Displacement II</a> for more on tracing displacement.</p>
+<div class="fragment">
+  <pre>	Attribute "trace" "int displacements" [1]</pre>
+</div>
+<h3> <a name="Max_Specular_Depth"></a> Max Specular Depth</h3>
+<p> This attribute sets the maximum number of bounces a specular ray can go through. Like all attributes this can be set on a per-object basis.</p>
+<div class="fragment">
+  <pre>	Attribute "trace" "int maxspeculardepth" [2]</pre>
+</div>
+<h3> <a name="Max_Diffuse_Depth"></a> Max Diffuse Depth</h3>
+<p> This is the maximum number of bounces that a diffuse ray can perform. A diffuse ray is used for indirect illumination such as colorbleeding (where 1 ray is normally enough), as you just want to return the color of the object the ray hit on its first bounce.</p>
+<div class="fragment">
+  <pre>	Attribute "trace" "int maxdiffusedepth" [1]</pre>
+</div>
+<h2> <a name="Ray_Depth"></a> Ray Depth</h2>
+<p> Most of the attributes mentioned above regulate, the maximum traversal depth of rays. It is important to set this as small as possible to get the effect you are looking for. If too large, it is easy to spawn huge numbers of rays that contribute little to the overall image. The image and movie below show how ray depth is counted into a scene with reflections and refractions. The ball is texture mapped with numbers that represent the current ray depth.<br>
+  Note that the primary "camera ray" is at ray depth zero, all subsequent reflections and refractions drive the maximum specular depth up to two.</p>
+<p> <a class="twikiLink" href="http://renderman.pixar.com/view/programmable-raytracing-movie1"> </a></p><div><div id="5809_RAW" class="mediaTile "><a class="twikiLink" href="http://renderman.pixar.com/view/programmable-raytracing-movie1"><img src="19906_5809.jpg" alt="19906_5809jpg" class="imageBorder" style=""></a></div></div><br><a class="twikiLink" href="http://renderman.pixar.com/view/programmable-raytracing-movie1">movie</a><p></p>
+<h2> <a name="See_Also"></a> See Also</h2>
+<p> <strong>Fundamentals</strong> - <a class="twikiLink" href="http://renderman.pixar.com/view/image-based-lighting">Image Based Lighting</a></p>
+<p> <strong>HowTos</strong> - <a class="twikiLink" href="http://renderman.pixar.com/view/intro-to-raytracing">Intro To Raytracing</a>, <a class="twikiLink" href="http://renderman.pixar.com/view/programmable-raytracing">Programmable Raytracing</a></p>
+<p> <strong>Library</strong> - <a href="http://rendermansite.pixar.com/ca_twopointo_cms_data/specialAssets/raytracingForTheMovieCars.pdf" target="_top" class="downloadBg">Raytracing for the Movie Cars (pdf)</a></p>
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-5.newrelic.com","84479ee329","1928761,2203606","YFVVYEFRXBFWVUQKWFkfdEFARF0PGHVfDUNSXkNnVkJEC1RTHwRSQ3NYWkdVXBZ5WVQGRHVJcEZSXlYBX19cB0VSXg==",8,1050,new Date().getTime(),"","","","",""]);</script>
+</div>            </div>
+		<div class="clearBoth"></div>
+	</div>   
+</div>
+
+<div id="pressSynopsisTemplate" style="display: none">
+	<div class="featuredSynopsis">
+    	<div class="displayTime dateStamp"></div>
+		<a class="targetUrl"><h3 class="title"></h3></a>
+		<div class="synopsis"></div>
+	</div>
+</div>
+
+<div id="simpleLinkContainerTemplate" style="display: none">
+	<div>
+		<div class="displayTime dateStamp"></div>
+		<h3 class="simpleLinkContainer"> 	<a href="http://renderman.pixar.com/view/raytracing-fundamentals#" class="targetUrl" target="_blank"><span class="title"></span></a></h3>
+	    <p class="synopsis"></p>
+    </div>
+</div>
+
+<div id="simpleLink" style="display: none">
+	<div>
+		<h3 class="simpleLinkContainer"> 	<a href="http://renderman.pixar.com/view/raytracing-fundamentals#" class="targetUrl"><span class="title"></span></a></h3>
+    	<div class="synopsis"></div>
+    </div>
+</div>
+
+<div id="simpleLinkTitle" style="display: none">
+	<div>
+		<h3 class="simpleLinkContainer"> 	<a href="http://renderman.pixar.com/view/raytracing-fundamentals#" class="targetUrl"><span class="title"></span></a></h3>
+    </div>
+</div>
+
+<div id="featuredPreviewTemplate" style="display: none">
+	<div class="featuredSynopsis">
+		<a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a>
+		<h2 class="title"></h2>
+		<p class="synopsis"></p>
+		<a class="readMore targetUrl">Read More...</a>
+	</div>
+</div>
+
+<div id="titleWithImageTemplate" style="display: none">
+	<div>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"> <img class="ogImage" src="1x1pxwhite.gif"></a>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"><h3 class="title"></h3></a>
+	</div>
+</div>
+
+<div id="titleImageSynopsisTemplate" style="display: none" class="noBullets">
+	<div>
+		<a class="targetUrl" href=""><img class="ogImage" src="1x1pxwhite.gif"></a>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"><h3 class="title"></h3></a>
+		<div class="synopsis"></div>
+        <a class="targetUrl clickableBox" href="http://renderman.pixar.com/view/raytracing-fundamentals#"></a>
+	</div>
+</div>
+
+<div id="gallerySynopsisTemplate" style="display: none">
+	<div>		
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"><h3 class="title"></h3></a>
+        <div class="synopsis gallerySynopsis"></div>
+        <a class="targetUrl clickableDiv" href="http://renderman.pixar.com/view/raytracing-fundamentals#"></a>
+	</div>
+</div>
+
+
+<div id="titleNoImageSynopsisTemplate" style="display: none">
+	<div>		
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"><h3 class="title"></h3></a>
+        <div class="synopsis"></div>
+        <a class="targetUrl clickableDiv" href="http://renderman.pixar.com/view/raytracing-fundamentals#"></a>
+	</div>
+</div>
+
+<div id="titleNoImageNoClickableDivSynopsisTemplate" style="display: none">
+	<div>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"><h3 class="title"></h3></a>
+        <div class="synopsis"></div>
+        <a class="targetUrl" href="http://renderman.pixar.com/view/raytracing-fundamentals#"></a>
+	</div>
+</div>
+
+
+<div id="noLinkPreviewTemplate" style="display: none">
+	<div class="featuredSynopsis">
+		<img class="ogImage" src="1x1pxwhite.gif">
+		<h2 class="title"></h2>
+		<p class="synopsis marginB20"></p>
+	</div>
+</div>
+
+<div id="featuredEntranceTemplate" style="display: none">
+	<div>
+		<div class="entranceButton"><a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a></div>
+	</div>
+</div>
+
+<div id="footerEntranceTemplate" style="display: none">
+	<div>
+		<div class="footerButton"><a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a></div>
+		<a class="targetUrl" href=""> <h4 class="title"></h4></a>
+		<div class="synopsis"></div>
+		<a class="readMore targetUrl">Read More</a>
+	</div>
+</div>
+
+<div id="featuredPreviewTemplateWide" style="display: none">
+	<div class="featuredSynopsisWide">
+		<a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a>
+		<h2 class="title"></h2>
+		<p class="synopsis"></p>
+		<a class="readMore targetUrl">Read More...</a>
+	</div>
+</div>
+
+<div id="aboutFeaturedPreviewTemplate" style="display: none">
+	<div class="featuredSynopsis">
+		<a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a>
+		<h2 class="title"></h2>
+		<p class="synopsis"></p>
+		<a class="readMore targetUrl">Read More...</a>
+	</div>
+</div>
+
+<div id="aboutRendermanFeaturedPreviewTemplate" style="display: none">
+	<div class="featuredSynopsis">
+		<a class="targetUrl" href=""> <img class="ogImage" src="1x1pxwhite.gif"></a>
+		<div class="textOverImage"> 
+			<h2 class="title"></h2>
+			<div class="synopsis"></div>
+			<a class="readMore circleArrow targetUrl">Learn More </a>
+		</div>
+    </div>
+</div>
+<script>
+	function createCookie(name,value,days) {
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+		}
+		else var expires = "";
+		document.cookie = name+"="+value+expires+"; path=/";
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		createCookie(name,"",-1);
+	}
+
+
+	var last_footer_left = readCookie('last_footer_left');
+	if (last_footer_left == null) {
+		last_footer_left = 0;
+	}
+	
+	var last_footer_center = readCookie('last_footer_left');
+	if (last_footer_center == null) {
+		last_footer_center = 0;
+	}
+
+	var last_footer_right = readCookie('last_footer_left');
+	if (last_footer_right == null) {
+		last_footer_right = 0;
+	}
+</script>
+
+
+
+<div id="mainFooterContainer">  
+<div class="fullWidth footerColor">
+<div class="center">
+
+<!--FOOTER LEFT-->
+<script>
+$(document).ready(function () {
+        $('#footerLeftEntriesForSection').populateFromNodeGroup('footer-left', last_footer_left , '#footerEntranceTemplate', 1);
+		last_footer_left++;
+		createCookie('last_footer_left',last_footer_left,1);
+});
+</script>
+<div id="footerLeftEntriesForSection" style="display: block;"><ul><li><div>
+		<div class="footerButton"><a class="targetUrl" href="http://renderman.pixar.com/view/DP21673" rel="DP21673"> <img class="ogImage" src="19588_8507_th.png" alt="About RenderMan | Testimonials"></a></div>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/DP21673" rel="DP21673"> <h4 class="title">About RenderMan | Testimonials</h4></a>
+		<div class="synopsis"><p>
+	Read what leaders in the industry have to say about Pixar's RenderMan.</p>
+</div>
+		<a class="readMore targetUrl" href="http://renderman.pixar.com/view/DP21673" rel="DP21673">Read More</a>
+	</div></li></ul></div>
+
+<!--FOOTER CENTER-->
+<script>
+$(document).ready(function () {
+        $('#footerCenterEntriesForSection').populateFromNodeGroup('footer-center', last_footer_center , '#footerEntranceTemplate', 1);
+		last_footer_center++;
+		createCookie('last_footer_center',last_footer_center,1);
+});
+</script>
+<div id="footerCenterEntriesForSection" style="display: block;"><ul><li><div>
+		<div class="footerButton"><a class="targetUrl" href="http://renderman.pixar.com/view/DP23743" rel="DP23743"> <img class="ogImage" src="16463_3695_th.png" alt="Showcase | Shading Ratatouille"></a></div>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/DP23743" rel="DP23743"> <h4 class="title">Showcase | Shading Ratatouille</h4></a>
+		<div class="synopsis"><p>
+	In this showcase, Pixar reveals some of the techniques used to create tasty looking 3D food.&nbsp;</p>
+</div>
+		<a class="readMore targetUrl" href="http://renderman.pixar.com/view/DP23743" rel="DP23743">Read More</a>
+	</div></li></ul></div>
+
+
+<!--FOOTER RIGHT-->
+<script>
+$(document).ready(function () {
+        $('#footerRightEntriesForSection').populateFromNodeGroup('footer-right', last_footer_right , '#footerEntranceTemplate', 1);
+		last_footer_right++;
+		createCookie('last_footer_right',last_footer_right,1);
+});
+</script>
+<div id="footerRightEntriesForSection" style="display: block;"><ul><li><div>
+		<div class="footerButton"><a class="targetUrl" href="http://renderman.pixar.com/view/DP23426" rel="DP23426"> <img class="ogImage" src="12213_9938_th.png" alt="Products | RenderMan On Demand"></a></div>
+		<a class="targetUrl" href="http://renderman.pixar.com/view/DP23426" rel="DP23426"> <h4 class="title">Products | RenderMan On Demand</h4></a>
+		<div class="synopsis"><p>
+	RenderMan On Demand brings Pixar's RenderMan to the Cloud. Extra power when you need it.</p>
+</div>
+		<a class="readMore targetUrl" href="http://renderman.pixar.com/view/DP23426" rel="DP23426">Read More</a>
+	</div></li></ul></div>
+
+</div><!-- mainFooterContainer-->
+</div>
+</div>
+
+<div class="clearBoth"></div>
+
+
+<div class="center">
+
+<div class="copyrightFooter">
+ TM &amp; © 1986 - <script language="javascript"> <!-- 
+current = new Date();
+document.write(current.getFullYear());
+// --></script>2013
+    Pixar. All Rights Reserved.
+    </div>
+
+
+
+
+<ul class="creatorFooterNav">
+		<li class="">
+		<a href="http://renderman.pixar.com/view/about-renderman">
+			About RenderMan		</a>
+	</li>
+		<li class="">
+		<a href="http://renderman.pixar.com/view/renderman-products">
+			Products		</a>
+	</li>
+		<li class="creatorMainNavActive">
+		<a href="http://renderman.pixar.com/view/resources">
+			Resources		</a>
+	</li>
+		<li class="">
+		<a href="http://renderman.pixar.com/view/renderman-news">
+			News		</a>
+	</li>
+	</ul>
+
+<script> var localeSettings = {
+"VIDEO_NETWORK":"Video Network ",
+"VIDEOS":"Videos ",
+"VIDEO":"Video",
+"VIEWS":"Views",
+"NOW_PLAYING":"Now Playing",
+"SAVE_TO_FAVORITES":"Save to Favorites",
+"COMMENT":"Comment",
+"WRITE_COMMENT":"Write Comment",
+"COMMENTS":"Comments",
+"ALL_RESULTS":"All Results",
+"RECOMMEND":"Recommend",
+"PLAYLISTS":"Playlists",
+"RECENT_ENTRIES":"Recent Entries",
+"PLAYLIST":"Playlist",
+"FEATURED":"Featured",
+"ARCHIVES":"Archives",
+"LEAVE_A_COMMENT":"Leave A Comment",
+"SIGN_IN_WITH_A_SINGLE_CLICK":"Sign in with a Single Click",
+"ALL_CHANNELS":"All Channels",
+"CHANNELS":"Channels",
+"FEATURED_ARTWORK":"Featured Artwork",
+"GALLERY_ARCHIVES":"Gallery Archives",
+"GALLERY_ENTRIES":"Gallery Entries",
+"CHECK_LOCAL_LISTINGS":"Check Local Listings",
+"CHANNEL":"Channel",
+"LEARN_MORE":"Learn More",
+"LATEST_LINKS":"Latest Links",
+"VIEW_ALL_RECIPES":"View All Recipes",
+"SEARCH":"Search",
+"FEATURING":"Featuring",
+"DISPLAY_MORE":"Display More",
+"VIEW_ALL_SHOWS":"View All Shows",
+"VIEW_ALL_CATEGORIES":"View All Categories",
+"VIEW_SHOW":"View Show",
+"ALL_VIDEOS_FOR":"All Videos for",
+"LOADING_VIDEO_COMMENTS":"Loading Video Comments",
+"VIEW_FULL_SHOW":"View Full Show",
+"ASSOCIATED_LINKS":"Associated Links",
+"SHOW_SEGMENTS":"Show Segments",
+"MY_CHANNEL":"My Channel",
+"MY_PROFILE":"My Profile",
+"START_YOUR_OWN_CHANNEL":"Start Your Own Channel & Share Your Story. ",
+"ITS_EASY":"It's Easy!",
+"CREATE_YOUR_OWN_SHOWS":"Create Your Own Shows.",
+"SHARE_WITH_FRIENDS_AND_THE_COMMUNITY":"Share with Friends & the Community",
+"USE_WEBCAM_TO_CREATE_VIDEO_RESPONSES":"Use WebCam to Create Video Responses",
+"START_SHARING_NOW":"Start Sharing Now",
+"LOGIN_WITH":"Login with",
+"SHARE_YOUR_STORY":"Share Your Story",
+"SIGN_UP":"Sign Up",
+"MY_LOGIN":"My Login",
+"FEATURED_RECIPES":"Featured Recipes",
+"SEE_OTHER_BRAND_CHANNELS_ON_THE":"See Other Brand Channels on the",
+"MORE_PLAYLISTS":"More Playlists",
+"MORE_VIDEOS":"+ More Videos",
+"MORE":"+ More",
+"MORE_RECIPES":"+ More Recipes",
+"VIEW_EXTENDED_SCHEDULE":"View Extended Schedule",
+"RECENT_ACTIVITY":"Recent Activity",
+"WHATS_NEW":"What's New",
+"CURRENT_PLAYLISTS":"Current Playlists",
+"CURRENT_VIDEOS":"Current Videos",
+"LIKES":"Likes",
+"EXTRAS":"Extras",
+"FAVORITES":"Favorites",
+"MY_FAVORITES_ARE_EMPTY":"My Favorites are Empty",
+"GET_STARTED":"Get Started",
+"TO_FAVORITE_OR_RESPOND_AND_PUBLISH_YOUR_SHOWS_ON_YOUR_OWN_CHANNEL":"To favorite or respond",
+"LOGIN":"Login / Sign Up",
+"TO_CONNECT":"To connect with the ",
+"Q_DONT_HAVE_FACEBOOK":"Don't have Facebook? ",
+"Q_DONT_HAVE_FACEBOOK_OR_TWITTER":"Don't have Facebook or Twitter? ",
+"REGISTER_NOW":"Register Now",
+"Q_HAVE_A_STANDARD_ACCOUNT":"Have a standard account?",
+"LOGIN_BELOW":"Login Below",
+"USE_THE_STANDARD_LOGIN":"Use the standard login",
+"CURRENT_CITY":"Current City",
+"CREATED":"Created",
+"JOINED":"Joined",
+"EDIT_PROFILE":"Edit Profile",
+"UPLOAD_IMAGE":"Upload Image",
+"SETTINGS":"Settings",
+"DASHBOARD":"Dashboard",
+"RESET_PASSWORD":"Reset Password",
+"DELETE_PROFILE":"Delete Profile",
+"LOG_OUT":"Log Out",
+"GENERAL_SETTINGS":"General Settings",
+"ACCOUNT_INFORMATION":"Account Information",
+"NICKNAME":"Nickname",
+"CHECK_HERE_TO_RECEIVE_UPDATES":"Check Here to Receive Updates",
+"BASIC_INFORMATION":"Basic Information",
+"ABOUT_ME":"About Me",
+"ACTIVITIES":"Activities",
+"RELATIONSHIP":"Relationship",
+"BIRTHDAY":"Birthday",
+"GENDER":"Gender",
+"FAVORITE_BOOK":"Favorite Book",
+"FAVORITE_MUSIC":"Favorite Music",
+"FAVORITE_QUOTES":"Favorite Quotes",
+"FAVORITE_TV_SHOWS":"Favorite TV Shows",
+"CONTACT_INFORMATION":"Contact Information",
+"ADDRESS":"Address",
+"CITY":"City",
+"STATE":"State/Prov",
+"POSTAL_CODE":"ZIP",
+"COUNTRY":"Country",
+"PERSONAL_INFORMATION":"Personal Information",
+"POLITICAL_VIEWS":"Political Views",
+"RELIGION":"Religion",
+"SECONDARY_SCHOOL":"High School",
+"POST_SECONDARY_SCHOOL":"College",
+"GRAD_SCHOOL":"Grad School",
+"USE_FACEBOOK_PICTURE":"Use (Facebook) Picture",
+"NAME_YOUR_SHOW":"Name Your Show",
+"ENTER_YOUR_SHOW_TITLE":"Enter Your show Title",
+"PRODUCE_A_SHOW":"Produce A Show",
+"PICTURES":"Pictures",
+"LOADING":"Loading",
+"FEATURING":"Featuring",
+"WHATS_NEW_ON_BETTER":"What's New on Better",
+"OUR_FAVORITES":"Our Favorites",
+"YOUR_FAVORITES":"Your Favorites",
+"BLOG":"Blog",
+"SHOW":"Show",
+"FAVORITED":"Favorited",
+"RELATED":"Related",
+"MOST_WATCHED":"Most Watched",
+"VIDEO_COMMENT":"Video Comment",
+"TEST":"Test"
+}
+;  </script>
+</div>
+
+
+
+
+
+
+<div class="clearBoth"></div>
+
+
+
+				
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-3542762-3']);
+ _gaq.push(['_trackPageview']);
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+</script>	
+			
+
+<script type="text/javascript" src="nr-100.js"></script></body></html>
