@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.nicolasserrano.com/viscom/white.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      body {
+        background-color: white;
+        color: black;
+      }
+      #footer {
+        bottom: 5px;
+        left: 4em;
+        position: absolute;
+        font-size: small;
+        background-color: grey;
+      }
+      #visFooter {
+        bottom: 5px;
+        position: absolute;
+        font-size: small;
+        background-color: grey;
+      }
+      input[type="color"] {
+        width: 20px;
+        height: 20px;
+        padding: 0px;
+        border: 1px solid white;
+      }
+    </style>
+    <style>
+
+*{font-family:sans-serif;}
+
+
+#paint {border: 1px solid black; background : #333333; margin-left: auto; margin-right: auto; display: block;}
+
+html, body {
+    overflow: hidden;
+}
+
+#brush {
+  width: 3em;
+}
+
+#footer {
+    visibility: hidden;
+}
+    
+#overFooter:hover #footer{
+    visibility: visible;
+}
+    </style>
+    <script>
+var canvas;
+var ctx;
+ 
+var sketch;
+var sketch_style;
+
+var mouse;
+
+function padFunction() {
+    canvas = document.getElementById('paint');
+    ctx = canvas.getContext('2d');
+ 
+    sketch = document.getElementById('sketch');
+    sketch_style = getComputedStyle(sketch);
+    
+//    canvas.width = document.body.clientWidth; //document.width is obsolete
+//   canvas.height = document.body.clientHeight; //document.height is obsolete
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;   
+    
+    mouse = {x: 0, y: 0};
+ 
+    /* Mouse Capturing Work */
+    canvas.addEventListener('mousemove', function(e) {
+      mouse.x = e.pageX - this.offsetLeft;
+      mouse.y = e.pageY - this.offsetTop;
+    }, false);
+
+    /* Drawing on Paint App */
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    ctx.strokeStyle = "red";
+
+
+    //ctx.strokeStyle = 
+    //ctx.strokeStyle = document.settings.colour[1].value;
+     
+    canvas.addEventListener('mousedown', function(e) {
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+     
+        canvas.addEventListener('mousemove', onPaint, false);
+    }, false);
+     
+    canvas.addEventListener('mouseup', function() {
+        canvas.removeEventListener('mousemove', onPaint, false);
+    }, false);
+     
+    var onPaint = function() {
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.size = 2;
+        ctx.stroke();
+    };
+    canvas.style.backgroundColor = '#333333';
+    getColor('#ffffff');
+    getSize(2);
+}
+
+function getColor(colour){
+    ctx.strokeStyle = colour;
+    document.getElementById("colour").value = colour;
+}
+function getSize(size){
+    ctx.lineWidth = size;
+    document.getElementById("brush").value = size;
+    }
+    </script>
+  </head>
+  <body onload="padFunction()">
+  
+  
+<div id="sketch">
+  <canvas id="paint"></canvas>
+</div>
+
+<span id="visFooter">
+<button style="background-color: grey;" onclick="document.getElementById('footer').style.visibility='visible'" >&nbsp;&gt;&nbsp; </button>
+</span>
+<span id="footer">
+<button style="background-color: grey;" onclick="document.getElementById('footer').style.visibility='hidden'" >&nbsp;&lt;&nbsp; </button>
+Pad page - Nicolas Serrano - Background: <input type="color" value=#333333 onchange="canvas.style.backgroundColor = value;">
+ Font: <input id="colour" type="color" value="#000000" onchange="getColor(value);">
+  <button style="background-color: #0000ff;" onclick="getColor('#0000ff');">&nbsp;</button>
+  <button style="background-color: #ff0000;" onclick="getColor('#ff0000');">&nbsp;</button>
+  <button style="background-color: #00ff00;" onclick="getColor('#00ff00');">&nbsp;</button>
+  <button style="background-color: #000000;" onclick="getColor('#000000');">&nbsp;</button>
+  <button style="background-color: #ffffff;" onclick="getColor('#ffffff');">&nbsp;</button>
+  <button style="background-color: grey;" onclick="getColor(canvas.style.backgroundColor);">Eraser</button>
+ Brush: 
+ <button onclick="getSize('2');">Small</button>
+  <button onclick="getSize('5');">Med</button>
+  <button onclick="getSize('10');">Large</button>
+  <button onclick="getSize('20');">X Large</button>
+  <input id="brush" type="number" value=2 onchange="getSize(value);" size="3">
+</span>
+</body></html>
