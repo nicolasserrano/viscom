@@ -77,6 +77,11 @@ canvas.height = window.innerHeight;
       mouse.x = e.pageX - this.offsetLeft;
       mouse.y = e.pageY - this.offsetTop;
     }, false);
+    canvas.addEventListener('touchmove', function(e) {
+        var touch = e.changedTouches[0];
+      mouse.x = touch.clientX; // - this.offsetLeft;;
+      mouse.y = touch.clientY; // - this.offsetTop;
+    }, false);
 
     /* Drawing on Paint App */
     ctx.lineJoin = 'round';
@@ -95,7 +100,19 @@ canvas.height = window.innerHeight;
         canvas.addEventListener('mousemove', onPaint, false);
     }, false);
      
+    canvas.addEventListener('touchstart', function(e) {
+        ctx.beginPath();
+        var touch = e.changedTouches[0];
+        ctx.moveTo(touch.clientX, touch.clientY);
+     
+        canvas.addEventListener('touchmove', onPaint, false);
+    }, false);
+     
     canvas.addEventListener('mouseup', function() {
+        canvas.removeEventListener('mousemove', onPaint, false);
+    }, false);
+     
+    canvas.addEventListener('touchend', function() {
         canvas.removeEventListener('mousemove', onPaint, false);
     }, false);
      
