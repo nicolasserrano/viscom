@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+  <style>
+.demo-inline {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: left;
+  color: #626262;
+  line-height: 1.3;
+  font-size: 14px;
+  background-color: #ffffff;
+  text-align: left;
+  vertical-align: top;
+  padding: 20px 20px 20px 20px;
+}
+.demo-inline .container {
+  background-color: #fafafa;
+  margin: -20px -20px 0 -20px;
+  padding: 20px;
+}
+.demo-inline p {
+  margin: 0 0;
+}
+.demo-inline h1 {
+  color: #1976D2;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0;
+}
+.demo-inline h2 {
+  color: #1976D2;
+  font-size: 2em;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 40px;
+}
+.demo-inline h3 {
+  font-size: 1.5em;
+  color: #403f42;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 40px;
+}
+.demo-inline ul,
+.demo-inline ol {
+  padding-left: 20px;
+}
+.demo-inline ul {
+  list-style: disc;
+}
+.demo-inline ol {
+  list-style: decimal;
+}
+.demo-inline a {
+  text-decoration: underline;
+}
+.demo-inline img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 10px 10px 10px;
+}
+.demo-inline textarea {
+  display: none;
+}
+.demo-inline *[contentEditable="true"]:focus,
+.demo-inline *[contentEditable="true"]:hover {
+  outline: 2px solid #1976D2;
+}
+  </style>
+  <script src='https://cdn.tiny.cloud/1/qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc/tinymce/5-stable/tinymce.min.js'>
+  </script>
+  <script>
+  
+var emailHeaderConfig = {
+  selector: '.tinymce-heading',
+  menubar: false,
+  inline: true,
+  plugins: [
+    'lists',
+    'powerpaste',
+    'autolink'
+  ],
+  toolbar: 'undo redo | bold italic underline',
+  valid_elements: 'strong,em,span[style],a[href]',
+  valid_styles: {
+    '*': 'font-size,font-family,color,text-decoration,text-align'
+  },
+  powerpaste_word_import: 'clean',
+  powerpaste_html_import: 'clean',
+};
+
+var emailBodyConfig = {
+  selector: '.tinymce-body',
+  menubar: false,
+  inline: true,
+  plugins: [
+    'link',
+    'lists',
+    'powerpaste',
+    'autolink',
+    'tinymcespellchecker'
+  ],
+  toolbar: [
+    'undo redo | bold italic underline | fontselect fontsizeselect',
+    'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent'
+  ],
+  valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li',
+  valid_styles: {
+    '*': 'font-size,font-family,color,text-decoration,text-align'
+  },
+  powerpaste_word_import: 'clean',
+  powerpaste_html_import: 'clean',
+};
+
+tinymce.init(emailHeaderConfig);
+tinymce.init(emailBodyConfig);
+
+  </script>
+  </head>
+  <body>
+
+<div class="demo-inline">
+  <div class="container">
+    
+    <div class="tinymce-body">
+      <p>Have you heard about Tiny Cloud? It&rsquo;s the first step in our journey to help you deliver great content creation experiences, no matter your level of expertise. 50,000 developers already agree. They get free access to our global CDN, image proxy services and auto updates to the TinyMCE editor. They&rsquo;re also ready for some exciting updates coming soon.</p>
+      
+  </div>
+</div>
+
+  </body>
+</html>
